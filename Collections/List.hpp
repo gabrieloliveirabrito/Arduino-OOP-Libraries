@@ -40,6 +40,24 @@ public:
 			return C->GetValue();
 		}
 	}
+
+	bool RemoveAt(int Index)
+	{
+		if (Index < 0 || Index >= this->Count)
+			return false;
+		else
+		{
+			Node<T> *C = this->First->GetNext();
+			for (int i = 0; i < Index; i++)
+				C = C->GetNext();
+
+			C->GetPrevious()->SetNext(C->GetNext());
+			C->GetNext()->SetPrevious(C->GetPrevious());
+			this->Count--;
+
+			return true;
+		}
+	}
 private:
 	int Count;
 	Node<T> *First, *Last;
