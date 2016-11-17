@@ -1,4 +1,8 @@
-#include "Includes.h"
+#include "Components\Potentiometer.h"
+#include "Components\LED.h"
+#include "Components\LDR.h"
+#include "Components\Buzzer.h"
+#include "Components\Button.h"
 
 Potentiometer pot(5);
 LDR ldr(4);
