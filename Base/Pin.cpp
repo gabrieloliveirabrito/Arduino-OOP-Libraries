@@ -70,10 +70,42 @@ void Pin::Write(int Value)
 	}
 }
 
+void Pin::Write(int Value, bool Analog)
+{
+	if (this->Mode == OUTPUT)
+	{
+		if (Analog)
+			analogWrite(this->Number, Value);
+		else
+			digitalWrite(this->Number, Value);
+	}
+}
+
 int Pin::Read()
 {
 	if (this->Mode == INPUT)
 	{
 		return this->Analog ? analogRead(this->Number) : digitalRead(this->Number);
 	}
+}
+
+int Pin::Read(bool Analog)
+{
+	if (this->Mode == INPUT)
+	{
+		return Analog ? analogRead(this->Number) : digitalRead(this->Number);
+	}
+}
+
+void Pin::HandleEvents()
+{
+	for (int i = 0; i < Pins->GetCount(); i++)
+	{
+		Pins->GetItem(i)->HandleComponentEvents();
+	}
+}
+
+void Pin::HandleComponentEvents()
+{
+
 }
