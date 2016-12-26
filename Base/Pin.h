@@ -7,6 +7,7 @@ class Pin
 public:
 	Pin(int PIN, int Mode);
 	Pin(int PIN, int Mode, bool Analog);
+	~Pin();
 
 	static void InitalizeAll();
 	static void HandleEvents();

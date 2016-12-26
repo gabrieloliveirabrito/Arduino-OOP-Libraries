@@ -12,6 +12,7 @@ public:
 	void SetPrevious(Node<T> *Previous) { this->Previous = Previous; }
 	Node<T> *GetNext() { return this->Next; }
 	void SetNext(Node<T> *Next) { this->Next = Next; }
+	bool HasNext() { return this->Next != nullptr; }
 
 	T GetValue() { return this->Value; }
 	void SetValue(T Value) { this->Value = Value; }

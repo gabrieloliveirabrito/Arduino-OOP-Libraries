@@ -52,11 +52,32 @@ public:
 				C = C->GetNext();
 
 			C->GetPrevious()->SetNext(C->GetNext());
-			C->GetNext()->SetPrevious(C->GetPrevious());
+
+			if(C->HasNext())
+				C->GetNext()->SetPrevious(C->GetPrevious());
 			this->Count--;
 
 			return true;
 		}
+	}
+
+	bool RemoveItem(T Item)
+	{
+		Node<T>* Current = this->First;
+		while ((Current = Current->GetNext()) != nullptr)
+		{
+			if (Current->GetValue() == Item)
+			{
+				Current->GetPrevious()->SetNext(Current->GetNext());
+
+				if(Current->HasNext())
+					Current->GetNext()->SetPrevious(Current->GetPrevious());
+				this->Count--;
+
+				return true;
+			}
+		}
+		return false;
 	}
 private:
 	int Count;

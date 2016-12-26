@@ -17,6 +17,11 @@ Pin::Pin(int PIN, int Mode, bool Analog)
 	this->Mode = Mode;
 }
 
+Pin::~Pin()
+{
+	Pins->RemoveItem(this);
+}
+
 const int Pin::GetNumber()
 {
 	return this->Number;
