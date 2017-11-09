@@ -7,4 +7,4 @@ PT-BR:
 - Bibliotecas criadas em C++ para ajudar os desenvolvedores de arduino a evitar repetições de código.
 
 Apoio:
-- Insituto Federal do Sul de Minas Gerais - Câmpus Passos
+- IFSULDEMINAS - Câmpus Passos
